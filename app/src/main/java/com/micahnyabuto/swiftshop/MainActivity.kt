@@ -17,6 +17,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.compose.SwiftShopTheme
+import com.micahnyabuto.swiftshop.ui.home.HomeScreen
+import com.micahnyabuto.swiftshop.ui.home.ProductViewModel
+import com.micahnyabuto.swiftshop.ui.navigation.SwiftShopApp
 
 
 class MainActivity : ComponentActivity() {
@@ -28,15 +31,11 @@ class MainActivity : ComponentActivity() {
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                    Column(
-                       modifier = Modifier.padding(innerPadding)
+                       modifier = Modifier
+                           .padding(innerPadding)
                            .fillMaxSize()
                    ){
-                       Text(text = "Swift Shop",
-                           modifier = Modifier.align(Alignment.CenterHorizontally),
-                           color = Color.Red,
-                           fontSize = 40.sp,
-                           fontWeight = FontWeight.Bold,
-                           fontFamily = FontFamily.Serif)
+                       SwiftShopApp()
                    }
                 }
             }

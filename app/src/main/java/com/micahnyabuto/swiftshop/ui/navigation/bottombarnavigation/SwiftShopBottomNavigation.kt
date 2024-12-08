@@ -25,6 +25,7 @@ fun SwiftShopBottomNavigation(navController: NavController){
             NavigationBarItem(
                 selected = index== navigationSelectedItem,
                 onClick = {
+
                     navigationSelectedItem = index
                     navController.navigate(item.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
@@ -39,6 +40,7 @@ fun SwiftShopBottomNavigation(navController: NavController){
                     modifier = Modifier,
                     label = {
                         Text(
+
                             text= item.label
                         )
 

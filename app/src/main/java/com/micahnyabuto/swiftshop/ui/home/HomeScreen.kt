@@ -40,6 +40,7 @@ fun HomeScreen(
             ProductList(
                 products=state.products,
                 viewModel = viewModel,
+                navigateToItemDetails = {navigateToItemDetails(it)},
                 modifier = modifier.padding(top = contentPadding.calculateTopPadding())
 
             )
@@ -51,6 +52,7 @@ fun ProductList(
    modifier: Modifier=Modifier,
     products: List<Product>,
     viewModel: ProductViewModel,
+   navigateToItemDetails:(product: Product)-> Unit
 
    ){
     Column{
@@ -63,6 +65,9 @@ fun ProductList(
         ) {
             items(products) { product->
                 ProductItem(
+                    product,
+                    productViewModel = viewModel,
+                    navigateToItemDetails = {navigateToItemDetails(product)}
 
                 )
 

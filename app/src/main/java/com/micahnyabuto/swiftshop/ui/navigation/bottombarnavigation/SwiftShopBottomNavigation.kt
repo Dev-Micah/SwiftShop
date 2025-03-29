@@ -39,8 +39,8 @@ fun SwiftShopBottomNavigation(navController: NavController){
                         Icon(item.icon,contentDescription =null) },
                     modifier = Modifier,
                     label = {
-                        Text(
 
+                        Text(
                             text= item.label
                         )
 

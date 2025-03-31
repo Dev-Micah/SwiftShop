@@ -65,7 +65,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
     // retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
     // gson converter
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
@@ -73,13 +73,13 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 
     //Extended icons
-    implementation("androidx.compose.material:material-icons-extended:1.3.1")
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
 
     //Kotlin Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
     //Retrofit and Kotlin serialization converter
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
 
 
 

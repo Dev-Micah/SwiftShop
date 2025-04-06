@@ -70,19 +70,19 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Viewmodel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 
     //Extended icons
     implementation("androidx.compose.material:material-icons-extended:1.7.8")
 
     //Kotlin Serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
     //Retrofit and Kotlin serialization converter
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
 
     // Coil
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("io.coil-kt:coil-compose:2.6.0")
 
 
 

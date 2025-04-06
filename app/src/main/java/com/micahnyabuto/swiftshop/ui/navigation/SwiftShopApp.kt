@@ -33,7 +33,7 @@ fun SwiftShopApp(){
        Surface(
            modifier = Modifier.fillMaxSize()
        ){
-           val productViewModel: ProductViewModel=viewModel()
+           val productViewModel: ProductViewModel=viewModel(factory = ProductViewModel.Factory)
            HomeScreen(
                homeUiState = productViewModel.homeUiState,
                contentPadding = it,

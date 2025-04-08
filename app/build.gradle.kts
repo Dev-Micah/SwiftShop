@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId = "com.micahnyabuto.swiftshop"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -59,10 +59,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    val nav_version = "2.8.3"
-
-    // Jetpack Compose integration
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation ("androidx.navigation:navigation-compose:2.8.9")
+    implementation ("androidx.compose.material:material:1.7.8")
 
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")

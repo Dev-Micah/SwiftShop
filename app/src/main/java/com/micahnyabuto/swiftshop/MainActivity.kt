@@ -16,9 +16,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.compose.SwiftShopTheme
 import com.micahnyabuto.swiftshop.ui.home.HomeScreen
 import com.micahnyabuto.swiftshop.ui.home.ProductViewModel
+import com.micahnyabuto.swiftshop.ui.navigation.BottomNavigationBar
 import com.micahnyabuto.swiftshop.ui.navigation.SwiftShopApp
 
 

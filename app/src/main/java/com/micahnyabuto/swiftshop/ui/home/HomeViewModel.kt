@@ -13,7 +13,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.micahnyabuto.swiftshop.SwiftShopApplication
 import com.micahnyabuto.swiftshop.data.Product
-import com.micahnyabuto.swiftshop.ui.checkout.CartItem
+import com.micahnyabuto.swiftshop.ui.cart.CartItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

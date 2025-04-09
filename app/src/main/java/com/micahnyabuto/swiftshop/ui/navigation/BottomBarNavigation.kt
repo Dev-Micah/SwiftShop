@@ -1,58 +1,53 @@
 package com.micahnyabuto.swiftshop.ui.navigation
 
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material.icons.filled.ShoppingCartCheckout
+import androidx.compose.material.BottomAppBar
 import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
-
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 
 
 @Composable
 fun BottomNavigationBar(
-    navController: NavController,
-    currentRoute: String?
-) {
-    BottomNavigation{
-        val navItems = listOf(
-            Screen.Home,
-            Screen.Checkout
-        )
+    navController: NavHostController
+){
+    val screens = listOf(
+        Screen.Home,
+        Screen.Cart,
+        Screen.Account
+    )
 
-        navItems.forEach { screen ->
-            BottomNavigationItem(
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    BottomAppBar {
+        screens.forEach { screen ->
+            NavigationBarItem(
                 icon = {
-                    when (screen) {
-                        is Screen.Home -> Icon(Icons.Default.Home, contentDescription = "Home")
-                        is Screen.Checkout -> Icon(Icons.Default.ShoppingCartCheckout, contentDescription = "Checkout")
-                    }
-                },
-                label = {
-                    Text(
-                        text = when (screen) {
-                            is Screen.Home -> "Home"
-                            is Screen.Checkout -> "Checkout"
-                        }
+                    Icon(
+                        imageVector = screen.icon,
+                        contentDescription = screen.title
                     )
                 },
+                label = { Text(screen.title) },
                 selected = currentRoute == screen.route,
                 onClick = {
                     navController.navigate(screen.route) {
-                        // Pop up to the start destination to avoid building up a large stack
+                        // Pop up to the start destination of the graph to
+                        // avoid building up a large stack of destinations
                         popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true
                         }
-                        // Avoid multiple copies of the same destination
+                        // Avoid multiple copies of the same destination when
+                        // reelecting the same item
                         launchSingleTop = true
-                        // Restore state when reelecting a previously selected item
+                        // Restore state when reselecting a previously selected item
                         restoreState = true
                     }
                 }

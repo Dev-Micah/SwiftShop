@@ -63,7 +63,7 @@ dependencies {
     implementation ("androidx.compose.material:material:1.7.8")
 
     // retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation(libs.retrofit)
     // gson converter
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 

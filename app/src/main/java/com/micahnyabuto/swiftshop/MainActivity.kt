@@ -8,20 +8,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.compose.SwiftShopTheme
-import com.micahnyabuto.swiftshop.ui.home.HomeScreen
-import com.micahnyabuto.swiftshop.ui.home.ProductViewModel
-import com.micahnyabuto.swiftshop.ui.navigation.BottomNavigationBar
-import com.micahnyabuto.swiftshop.ui.navigation.SwiftShopApp
+import com.micahnyabuto.swiftshop.ui.navigation.AppNavGraph
 
 
 class MainActivity : ComponentActivity() {
@@ -37,7 +26,7 @@ class MainActivity : ComponentActivity() {
                            .padding(innerPadding)
                            .fillMaxSize()
                    ){
-                       SwiftShopApp()
+                       AppNavGraph()
                    }
                 }
             }

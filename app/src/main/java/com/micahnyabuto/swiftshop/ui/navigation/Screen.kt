@@ -14,4 +14,5 @@ sealed class Screen(val route: String, val title: String , val icon: ImageVector
 //   object ProductDetailsScreen: Screen("product_details_screen?product={product}")
      object Account: Screen ("account", title = "Account", icon = Icons.Default.Person)
 
+
 }

@@ -1,9 +1,12 @@
-package com.micahnyabuto.swiftshop.ui.Account
+package com.micahnyabuto.swiftshop.ui.account
 
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
 fun AccountScreen(){
-    Text("Account Screen")
+        Text("Your account details will appear here",
+            maxLines = 2)
+
 }

@@ -13,6 +13,7 @@ import com.micahnyabuto.swiftshop.ui.account.AccountScreen
 import com.micahnyabuto.swiftshop.ui.cart.CartScreen
 import com.micahnyabuto.swiftshop.ui.home.HomeScreen
 import com.micahnyabuto.swiftshop.ui.order.OrderPlacedScreen
+import com.micahnyabuto.swiftshop.ui.productdetails.ProductDetailViewModel
 import com.micahnyabuto.swiftshop.ui.productdetails.ProductDetailsScreen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -30,12 +31,20 @@ fun AppNavGraph(){
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) { HomeScreen(
-                navigateToItemDetails = { navController.navigate(ProductDetailsScreen()) }
+                navigateToItemDetails = { navController.navigate(ProductDetailsScreen(
+                    viewModel = ProductDetailViewModel(),
+                    productId = it
+                )) }
             ) }
             composable(Screen.Cart.route) { CartScreen() }
             composable(Screen.Account.route) { AccountScreen() }
-            composable("productDetails") { ProductDetailsScreen() }
-            composable("orderPlaced") { OrderPlacedScreen() }
+            composable("productDetails") { ProductDetailsScreen(
+                viewModel = ProductDetailViewModel(),
+                productId = TODO(),
+            ) }
+            composable("orderPlaced") { OrderPlacedScreen(
+                navController = navController
+            ) }
         }
     }
 }

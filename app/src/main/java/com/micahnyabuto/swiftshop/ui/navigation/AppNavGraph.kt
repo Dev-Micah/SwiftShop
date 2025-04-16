@@ -6,12 +6,14 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.micahnyabuto.swiftshop.ui.account.AccountScreen
 import com.micahnyabuto.swiftshop.ui.cart.CartScreen
 import com.micahnyabuto.swiftshop.ui.home.HomeScreen
+import com.micahnyabuto.swiftshop.ui.home.ProductViewModel
 import com.micahnyabuto.swiftshop.ui.order.OrderPlacedScreen
 import com.micahnyabuto.swiftshop.ui.productdetails.ProductDetailViewModel
 import com.micahnyabuto.swiftshop.ui.productdetails.ProductDetailsScreen
@@ -30,18 +32,10 @@ fun AppNavGraph(){
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) { HomeScreen(
-                navigateToItemDetails = { navController.navigate(ProductDetailsScreen(
-                    viewModel = ProductDetailViewModel(),
-                    productId = it
-                )) }
-            ) }
+            composable(Screen.Home.route) {HomeScreen() }
             composable(Screen.Cart.route) { CartScreen() }
             composable(Screen.Account.route) { AccountScreen() }
-            composable("productDetails") { ProductDetailsScreen(
-                viewModel = ProductDetailViewModel(),
-                productId = TODO(),
-            ) }
+            composable("productDetails") { ProductDetailsScreen() }
             composable("orderPlaced") { OrderPlacedScreen(
                 navController = navController
             ) }

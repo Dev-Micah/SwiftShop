@@ -3,6 +3,7 @@ package com.micahnyabuto.swiftshop.ui.home
 import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,16 +12,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
@@ -34,13 +31,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -51,25 +46,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.example.compose.primaryLight
 import com.micahnyabuto.swiftshop.R
 import com.micahnyabuto.swiftshop.data.Product
+import com.micahnyabuto.swiftshop.ui.navigation.Screen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier,
     viewModel: ProductViewModel = viewModel(factory = ProductViewModel.Factory),
 
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
-    val products by viewModel.products.collectAsState()
-    val cart by viewModel.cart.collectAsState()
-    val isLoading by viewModel.isLoading.collectAsState()
-    val error by viewModel.error.collectAsState()
     val homeUiState = viewModel.homeUiState.collectAsState().value
 
     val context = LocalContext.current
@@ -176,11 +168,18 @@ fun HomeScreen(
 @Composable
 fun ProductCard(
     product: Product,
-    onAddToCart: () -> Unit
+    onAddToCart: () -> Unit,
+    viewModel: ProductViewModel = viewModel(factory = ProductViewModel.Factory),
+
+
 ) {
+    val navController = rememberNavController()
 
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth()
+            .clickable {
+
+            },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(8.dp)
     ) {
@@ -234,7 +233,9 @@ fun ProductCard(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.End
             ) {
-                Button(onClick = {}) {
+                Button(onClick = {
+
+                }) {
                     Text("Add to Cart")
                 }
                 }

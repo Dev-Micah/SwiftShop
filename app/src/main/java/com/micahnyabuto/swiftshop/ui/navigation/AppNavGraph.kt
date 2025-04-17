@@ -10,9 +10,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.micahnyabuto.swiftshop.data.Product
 import com.micahnyabuto.swiftshop.ui.account.AccountScreen
 import com.micahnyabuto.swiftshop.ui.cart.CartScreen
 import com.micahnyabuto.swiftshop.ui.home.HomeScreen
+import com.micahnyabuto.swiftshop.ui.home.ProductItem
 import com.micahnyabuto.swiftshop.ui.home.ProductViewModel
 import com.micahnyabuto.swiftshop.ui.order.OrderPlacedScreen
 import com.micahnyabuto.swiftshop.ui.productdetails.ProductDetailViewModel
@@ -32,6 +34,7 @@ fun AppNavGraph(){
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
+
             composable(Screen.Home.route) {HomeScreen() }
             composable(Screen.Cart.route) { CartScreen() }
             composable(Screen.Account.route) { AccountScreen() }
